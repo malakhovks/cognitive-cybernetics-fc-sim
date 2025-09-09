@@ -15,8 +15,8 @@ def cmd_run(args):
     scenarios = SCENARIOS if args.scenario == "all" else [s.strip() for s in args.scenario.split(",")]
     for scen in scenarios:
         out_dir = os.path.join(args.results, scen); ensure_dir(out_dir)
-        policy = make_policy(scen, cfg)
         for i in range(args.trials):
+            policy = make_policy(scen, cfg)
             sim_cfg.seed = cfg["seed"] + i
             obj = run_one_trial(sim_cfg, policy)
             write_json(os.path.join(out_dir, f"trial_{i}.json"), obj)
