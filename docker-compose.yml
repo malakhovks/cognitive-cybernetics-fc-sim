@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  simulator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fc-sim:0.1.0
+    container_name: fc-sim
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OPENALEX_EMAIL=${OPENALEX_EMAIL:-}
+      - CROSSREF_MAILTO=${CROSSREF_MAILTO:-}
+    volumes:
+      - ./config:/app/config:ro
+      - ./results:/app/results
+      - ./reports:/app/reports
+      - ./data:/app/data
+    command: ["python","-m","src.cli","run","--config","config/main.yaml","--scenario","${SCENARIO:-all}","--trials","${TRIALS:-50}","--results","results"]
+    tty: true
+  summarize:
+    image: fc-sim:0.1.0
+    depends_on: [ simulator ]
+    volumes:
+      - ./results:/app/results
+      - ./reports:/app/reports
+    command: ["python","-m","src.cli","summarize","--results","results","--out","reports/summary.csv"]
+  plot:
+    image: fc-sim:0.1.0
+    depends_on: [ simulator ]
+    volumes:
+      - ./results:/app/results
+      - ./reports:/app/reports
+    command: ["python","-m","src.cli","plot","--results","results","--out","reports/figures"]

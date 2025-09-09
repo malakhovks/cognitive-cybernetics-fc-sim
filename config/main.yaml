@@ -1,0 +1,28 @@
+seed: 20250827
+horizon: 50
+topics: 20
+outputs_per_cycle: 20
+breakthrough: [18, 19]
+noise_novelty: 0.02
+delay_steps: 1
+shock:
+  enabled: true
+  at_cycle: 25
+  outputs_after: 10
+targets:
+  novelty: 0.20
+pid:
+  kp: 0.5
+  ki: 0.0
+  kd: 0.0
+lqr:
+  q: [1.0, 0.1]
+  r: 0.05
+  delta_pi: 0.05
+cpg:
+  gamma: 0.95
+  lr_theta: 0.01
+  lr_mu: 0.01
+  var_pi: 0.02
+  d_min: 0.6
+  lambdas: {novelty: 1.0, impact: 0.0, smooth: 0.1}

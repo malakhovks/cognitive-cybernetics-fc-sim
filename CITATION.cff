@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Feedback-Controlled Knowledge-Production Simulator"
+version: "0.1.0"
+date-released: 2025-09-09
+authors:
+  - family-names: Malakhov
+    given-names: Kyrylo
+license: MIT
+message: "If you use this simulator in academic work, please cite this repository."

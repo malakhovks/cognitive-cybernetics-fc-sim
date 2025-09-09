@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fc-sim"
+version = "0.1.0"
+description = "Feedback-controlled knowledge-production simulator"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name="Kyrylo Malakhov"}]
+license = {text = "MIT"}
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "scipy>=1.11",
+  "pyyaml>=6.0",
+  "matplotlib>=3.8",
+  "tqdm>=4.66",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+fc-sim = "src.cli:main"

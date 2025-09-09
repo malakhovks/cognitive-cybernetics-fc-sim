@@ -1,0 +1,10 @@
+```mermaid
+flowchart LR
+  A[OpenAlex/Crossref seeding] --> B[Init Knowledge Graph G0]
+  B --> C[Simulation Loop (t=1..H)]
+  C --> D[Metrics per cycle: N_t, D_t, I_t]
+  D --> E[Controller (PID/LQR/CPG)]
+  E -->|π_t| C
+  C --> F[Logs: trajectories, summaries]
+  F --> G[Statistical Analysis]
+```
