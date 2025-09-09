@@ -1,7 +1,14 @@
 # Feedback-Controlled Knowledge-Production Simulator
 
 A reference implementation of the simulation and controllers described in the project:
-**Cognitive Cybernetics of Computer Science Evolution: A Feedback-Driven Environment for Knowledge Production**.
+**Computer Science Evolution: A Feedback-Driven Environment for Knowledge Production**.
+
+This repository provides a Python-based simulator that explores how feedback loops
+shape the evolution of knowledge artifacts in computer science. It models iterative
+cycles of contribution, evaluation, and refinement guided by configurable control
+strategies. Experiments are described in YAML configuration files and executed
+through a command-line interface that can run batches of trials, summarize results,
+and generate plots for further analysis.
 
 ## Quick Start
 ```bash
